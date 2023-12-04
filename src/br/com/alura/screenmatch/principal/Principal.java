@@ -5,12 +5,15 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+import br.com.alura.screenmatch.modelos.TituloOmdb;
 
 import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme("O poderoso chefão", 1970);
+        TituloOmdb meuTituloFilmeOmdb =new TituloOmdb("O poderoso chefão", "1970","160");
+        TituloOmdb meuOutroTituloFilmeOmdb =new TituloOmdb("Dogville", "1970","160");
+        Filme meuFilme = new Filme(meuTituloFilmeOmdb);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração: "+ meuFilme.getDuracaoEmMinutos());
         meuFilme.exibeFichaTecnica();
@@ -19,8 +22,9 @@ public class Principal {
         meuFilme.avalia(10);
         System.out.println(meuFilme.mediaAvalicacao());
         System.out.println("total de avaliação:" + meuFilme.getTotalDeAvaliacao());
+        TituloOmdb meuTituloOmdb =new TituloOmdb("Lost", "2000","60");
 
-        Serie minhaSerie = new Serie("Lost", 2000);
+        Serie minhaSerie = new Serie(meuTituloOmdb);
         minhaSerie.setDuracaoEmMinutos(24);
         minhaSerie.exibeFichaTecnica();
         minhaSerie.setTemporadas(10);
@@ -42,7 +46,7 @@ public class Principal {
         filtro.filtra(episodio);
         filtro.filtra(episodio);
 
-        var filmeDoPaulo = new Filme("Dogville", 2003);
+        var filmeDoPaulo = new Filme(meuOutroTituloFilmeOmdb);
         filmeDoPaulo.setDuracaoEmMinutos(200);
         filmeDoPaulo.avalia(10);
 

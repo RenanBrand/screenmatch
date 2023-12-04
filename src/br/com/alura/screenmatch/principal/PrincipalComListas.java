@@ -3,6 +3,7 @@ package br.com.alura.screenmatch.principal;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
+import br.com.alura.screenmatch.modelos.TituloOmdb;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,13 +13,17 @@ import java.util.List;
 
 public class PrincipalComListas {
             public static void main(String[] args) {
-                Filme meuFilme = new Filme("O poderoso chefão", 1970);
+                TituloOmdb meuTituloFilmeOmdb =new TituloOmdb("O poderoso chefão", "1970","160");
+                TituloOmdb meuOutroTituloFilmeOmdb =new TituloOmdb("Dogville", "2003","160");
+                TituloOmdb meuDoPauloTituloFilmeOmdb =new TituloOmdb("Avatar", "2023","180");
+                Filme meuFilme = new Filme(meuTituloFilmeOmdb);
                 meuFilme.avalia(9);
-                Filme outroFilme = new Filme("Avatar", 2023);
+                Filme outroFilme = new Filme(meuOutroTituloFilmeOmdb);
                 outroFilme.avalia(6);
-                var filmeDoPaulo = new Filme("Dogville", 2003);
+                var filmeDoPaulo = new Filme(meuDoPauloTituloFilmeOmdb);
                 filmeDoPaulo.avalia(10);
-                Serie lost = new Serie("Lost", 2000);
+                TituloOmdb meuTituloOmdb =new TituloOmdb("Lost", "2000","60");
+                Serie minhaSerie = new Serie(meuTituloOmdb);
 
                 Filme f1 = filmeDoPaulo;
 
@@ -26,7 +31,7 @@ public class PrincipalComListas {
                 lista.add(filmeDoPaulo);
                 lista.add(meuFilme);
                 lista.add(outroFilme);
-                lista.add(lost);
+                lista.add(minhaSerie);
                 for (Titulo item: lista) {
                     System.out.println(item.getNome());
                     if (item instanceof Filme && ((Filme) item).getClassificavel() > 2) {
